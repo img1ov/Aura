@@ -5,16 +5,19 @@
 #include "AuraAbilityTypes.generated.h"
 
 USTRUCT()
-struct FAuraGameplayContext : public FGameplayEffectContext{
+struct FAuraGameplayEffectContext : public FGameplayEffectContext{
 	GENERATED_BODY()
 
 public:
 	virtual UScriptStruct* GetScriptStruct() const override;
 	virtual bool NetSerialize(FArchive& Ar, class UPackageMap* Map, bool& bOutSuccess) override;
-	virtual  FAuraGameplayContext* Duplicate() const override;
+	virtual  FAuraGameplayEffectContext* Duplicate() const override;
 
-	virtual bool GetIsBlockedHit() { return bIsBlockedHit; }
-	virtual bool GetIsCriticalHit() { return bIsCriticalHit; }
+	bool GetIsBlockedHit() const { return bIsBlockedHit; }
+	bool GetIsCriticalHit() const { return bIsCriticalHit; }
+
+	void SetIsBlockedHit(const bool InIsBlockedHit) { bIsBlockedHit = InIsBlockedHit; }
+	void SetIsCriticalHit(const bool InIsCriticalHit){ bIsCriticalHit = InIsCriticalHit; }
 	
 protected:
 	UPROPERTY()
@@ -25,7 +28,7 @@ protected:
 };
 
 template<>
-struct TStructOpsTypeTraits< FAuraGameplayContext > : public TStructOpsTypeTraitsBase2< FAuraGameplayContext >
+struct TStructOpsTypeTraits< FAuraGameplayEffectContext > : public TStructOpsTypeTraitsBase2< FAuraGameplayEffectContext >
 {
 	enum
 	{

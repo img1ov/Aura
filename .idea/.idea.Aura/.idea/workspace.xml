@@ -12,7 +12,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f0a9726-f8a8-4386-8601-5d3bf2c3adbd" name="更改" comment="Multiplayer Fixed" />
+    <list default="true" id="7f0a9726-f8a8-4386-8601-5d3bf2c3adbd" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Aura/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Aura/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/BP_TextDamageComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/BP_TextDamageComponent.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/WBP_DamageText.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/WBP_DamageText.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilitySystemGlobals.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilitySystemGlobals.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilityTypes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilityTypes.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAttributeSet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/Player/AuraPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/Player/AuraPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAbilityTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAbilityTypes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAttributeSet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/Player/AuraPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/Player/AuraPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/UI/Widget/DamageTextComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/UI/Widget/DamageTextComponent.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +48,7 @@
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/img1ov/GameplayAbilitySystem_Aura.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/img1ov/Aura.git&quot;,
     &quot;accountId&quot;: &quot;94afeb67-073d-4e0e-9ceb-66e5c185a021&quot;
   }
 }</component>
@@ -71,20 +84,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "C/C++ 项目.Aura.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.ChangelistConflict",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;C/C++ 项目.Aura.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.ChangelistConflict&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C/C++ 项目.Aura">
     <configuration name="Aura" type="CppProject" factoryName="C++ Project">
       <configuration_1 setup="1">
@@ -265,6 +279,8 @@
       <workItem from="1756944956576" duration="21088000" />
       <workItem from="1757117051858" duration="26016000" />
       <workItem from="1757568498799" duration="8923000" />
+      <workItem from="1757579127353" duration="539000" />
+      <workItem from="1757591043088" duration="4711000" />
     </task>
     <task id="LOCAL-00001" summary="AbilityInputTag &amp; ClickToMove">
       <option name="closed" value="true" />

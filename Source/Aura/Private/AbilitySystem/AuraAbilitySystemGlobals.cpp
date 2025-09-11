@@ -7,5 +7,5 @@
 
 FGameplayEffectContext* UAuraAbilitySystemGlobals::AllocGameplayEffectContext() const
 {
-	return new FAuraGameplayContext();
+	return new FAuraGameplayEffectContext();
 }

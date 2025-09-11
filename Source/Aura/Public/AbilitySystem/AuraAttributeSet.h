@@ -266,10 +266,9 @@ public:
 	UFUNCTION()
 	void OnRep_Mana(const FGameplayAttributeData& OldValue) const;
 
-
 private:
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& InEffectProperties);
 
-	void ShowFloatingText(const FEffectProperties& EffectProperties, float Damage) const;
+	void ShowFloatingText(const FEffectProperties& EffectProperties, const float Damage, const bool IsBlockedHit, const bool IsCriticalHit) const;
 };
 

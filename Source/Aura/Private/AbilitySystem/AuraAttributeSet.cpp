@@ -5,6 +5,7 @@
 
 #include "GameFramework/Character.h"
 #include "GameplayEffectExtension.h"
+#include "AbilitySystem/AuraAbilityTypes.h"
 #include "Net/UnrealNetwork.h"
 #include "GameplayTags/AuraGameplayTags.h"
 #include "Interaction/CombatInterface.h"
@@ -125,7 +126,8 @@ void UAuraAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectMo
 				}
 			}
 
-			ShowFloatingText(EffectProperties, LocalIncomingDamage);
+			FAuraGameplayEffectContext* AuraEffectContext = static_cast<FAuraGameplayEffectContext*>(Data.EffectSpec.GetContext().Get());
+			ShowFloatingText(EffectProperties, LocalIncomingDamage, AuraEffectContext->GetIsBlockedHit(), AuraEffectContext->GetIsCriticalHit());
 		}
 	}
 }
@@ -189,16 +191,15 @@ void UAuraAttributeSet::SetEffectProperties(const FGameplayEffectModCallbackData
 	}
 }
 
-void UAuraAttributeSet::ShowFloatingText(const FEffectProperties& EffectProperties, float Damage) const
+void UAuraAttributeSet::ShowFloatingText(const FEffectProperties& EffectProperties, const float Damage, const bool IsBlockedHit, const bool IsCriticalHit) const
 {
 	if (EffectProperties.SourceCharacter != EffectProperties.TargetCharacter)
 	{
 		if (AAuraPlayerController* AuraPlayerController =
 			Cast<AAuraPlayerController>(EffectProperties.SourceCharacter->Controller))
 		{
-			AuraPlayerController->ShowDamageNumber(Damage, EffectProperties.TargetCharacter);
+			AuraPlayerController->ShowDamageNumber(Damage, EffectProperties.TargetCharacter, IsBlockedHit, IsCriticalHit);
 		}
-				
 	}
 }
 

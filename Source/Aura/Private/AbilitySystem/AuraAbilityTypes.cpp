@@ -1,11 +1,11 @@
 #include "AbilitySystem/AuraAbilityTypes.h"
 
-UScriptStruct* FAuraGameplayContext::GetScriptStruct() const
+UScriptStruct* FAuraGameplayEffectContext::GetScriptStruct() const
 {
 	return StaticStruct();
 }
 
-bool FAuraGameplayContext::NetSerialize(FArchive& Ar, class UPackageMap* Map, bool& bOutSuccess)
+bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, class UPackageMap* Map, bool& bOutSuccess)
 {
 	//!!!!!!!!!!!!!!!! Warning !!!!!!!!!!!!!!!
 	// Any changes to this function also need to be done to FGameplayEffectContextNetSerializer to support Iris replication
@@ -112,9 +112,9 @@ bool FAuraGameplayContext::NetSerialize(FArchive& Ar, class UPackageMap* Map, bo
 	return true;
 }
 
-FAuraGameplayContext* FAuraGameplayContext::Duplicate() const
+FAuraGameplayEffectContext* FAuraGameplayEffectContext::Duplicate() const
 {
-	FAuraGameplayContext* NewContext = new FAuraGameplayContext();
+	FAuraGameplayEffectContext* NewContext = new FAuraGameplayEffectContext();
 	*NewContext = *this;
 	if (GetHitResult())
 	{

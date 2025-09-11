@@ -5,6 +5,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "AbilitySystem/AuraAbilitySystemBPLibrary.h"
+#include "AbilitySystem/AuraAbilityTypes.h"
 #include "AbilitySystem/Data/CharacterClassInfo.h"
 #include "GameplayTags/AuraGameplayTags.h"
 #include "Interaction/CombatInterface.h"
@@ -39,6 +40,8 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 	FAggregatorEvaluateParameters EvaluateParameters;
 	EvaluateParameters.SourceTags = EffectSpec.CapturedSourceTags.GetAggregatedTags();
 	EvaluateParameters.TargetTags = EffectSpec.CapturedTargetTags.GetAggregatedTags();
+	
+	FAuraGameplayEffectContext* AuraEffectContext = static_cast<FAuraGameplayEffectContext*>(EffectSpec.GetContext().Get());
 
 	/** Calculation Space */
 	
@@ -53,6 +56,7 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 	// If Block, half the Damage
 	const bool bBlock = FMath::RandRange(1, 100) < TargetBlockChanceMag;
 	IncomingDamageMag = bBlock ? IncomingDamageMag * .5f : IncomingDamageMag;
+	AuraEffectContext->SetIsBlockedHit(bBlock);
 
 	// Capture Armor on Target
 	float TargetArmorMag = 0.f;
@@ -106,6 +110,7 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 	// CriticalHitResistance reduces CriticalHitChance by a certain percentage
 	const float EffectiveCriticalHitChance = SourcesCriticalChanceMag - TargetCriticalHitResistanceMag * CriticalHitResistanceCoefficient;
 	const bool bCriticalHit = FMath::RandRange(1, 100) <= EffectiveCriticalHitChance;
+	AuraEffectContext->SetIsCriticalHit(bCriticalHit);
 
 	// Double damage plus a bonus if critical hit
 	IncomingDamageMag = bCriticalHit ? 2.f * IncomingDamageMag + SourcesCriticalHitDamageMag : IncomingDamageMag;
