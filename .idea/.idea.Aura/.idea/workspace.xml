@@ -14,17 +14,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7f0a9726-f8a8-4386-8601-5d3bf2c3adbd" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Aura/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Aura/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/BP_TextDamageComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/BP_TextDamageComponent.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/WBP_DamageText.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/FloatingText/WBP_DamageText.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilitySystemGlobals.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilitySystemGlobals.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilityTypes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAbilityTypes.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/AuraAttributeSet.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/Player/AuraPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/Player/AuraPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAbilityTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAbilityTypes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/AuraAttributeSet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/Player/AuraPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/Player/AuraPlayerController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/UI/Widget/DamageTextComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/UI/Widget/DamageTextComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +271,8 @@
       <workItem from="1757117051858" duration="26016000" />
       <workItem from="1757568498799" duration="8923000" />
       <workItem from="1757579127353" duration="539000" />
-      <workItem from="1757591043088" duration="4711000" />
+      <workItem from="1757591043088" duration="5123000" />
+      <workItem from="1757648833777" duration="3298000" />
     </task>
     <task id="LOCAL-00001" summary="AbilityInputTag &amp; ClickToMove">
       <option name="closed" value="true" />
@@ -306,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756818323257</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Damage Floating Text">
+      <option name="closed" value="true" />
+      <created>1757596740266</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757596740267</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +330,8 @@
     <MESSAGE value="AbilityInputTag &amp; ClickToMove" />
     <MESSAGE value="AuraProjectileSpell" />
     <MESSAGE value="Initialize enemy attributes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialize enemy attributes" />
+    <MESSAGE value="Damage Floating Text" />
+    <option name="LAST_COMMIT_MESSAGE" value="Damage Floating Text" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

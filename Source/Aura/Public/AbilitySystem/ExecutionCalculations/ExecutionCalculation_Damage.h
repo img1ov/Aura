@@ -7,10 +7,23 @@
 #include "AbilitySystem/AuraAttributeSet.h"
 #include "ExecutionCalculation_Damage.generated.h"
 
-/** Static Wrapper to Capture Attributes  */
-struct FDamageCaptureStatics
+USTRUCT()
+struct FAttributeCaptureStatics
 {
-	//QuickMacro CaptureDefinition
+	GENERATED_BODY()
+
+public:
+	static FAttributeCaptureStatics* Get()
+	{
+		static FAttributeCaptureStatics* CaptureStaticsInstance;
+		if (!CaptureStaticsInstance)
+		{
+			CaptureStaticsInstance = new FAttributeCaptureStatics();
+		}
+
+		return CaptureStaticsInstance;
+	}
+	
 	DECLARE_ATTRIBUTE_CAPTUREDEF(Armor)
 	DECLARE_ATTRIBUTE_CAPTUREDEF(ArmorPenetration)
 	DECLARE_ATTRIBUTE_CAPTUREDEF(BlockChance)
@@ -18,10 +31,8 @@ struct FDamageCaptureStatics
 	DECLARE_ATTRIBUTE_CAPTUREDEF(CriticalHitDamage)
 	DECLARE_ATTRIBUTE_CAPTUREDEF(CriticalHitResistance)
 	
-	FDamageCaptureStatics()
+	FAttributeCaptureStatics()
 	{
-		// Capture Attributes from self or target
-		// Macro Params: StaticClass, CaptureParam, CaptureTarget, SnapShot
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAuraAttributeSet, Armor, Target, false)
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAuraAttributeSet, ArmorPenetration, Source, false)
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAuraAttributeSet, BlockChance, Target, false)
@@ -30,12 +41,6 @@ struct FDamageCaptureStatics
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAuraAttributeSet, CriticalHitResistance, Target, false)
 	}
 };
-
-static const FDamageCaptureStatics& GetDamageCaptureStatics()
-{
-	static FDamageCaptureStatics DamageStatics;
-	return DamageStatics;
-}
 
 /**
  * 
@@ -46,7 +51,17 @@ class AURA_API UExecutionCalculation_Damage : public UGameplayEffectExecutionCal
 	GENERATED_BODY()
 
 public:
-	UExecutionCalculation_Damage();
+	
+	
+	UExecutionCalculation_Damage()
+	{
+		RelevantAttributesToCapture.Add(FAttributeCaptureStatics::Get()->ArmorDef);
+		RelevantAttributesToCapture.Add(FAttributeCaptureStatics::Get()->ArmorPenetrationDef);
+		RelevantAttributesToCapture.Add(FAttributeCaptureStatics::Get()->BlockChanceDef);
+		RelevantAttributesToCapture.Add(FAttributeCaptureStatics::Get()->CriticalChanceDef);
+		RelevantAttributesToCapture.Add(FAttributeCaptureStatics::Get()->CriticalHitDamageDef);
+		RelevantAttributesToCapture.Add(FAttributeCaptureStatics::Get()->CriticalHitResistanceDef);
+	}
 
 	virtual void Execute_Implementation(const FGameplayEffectCustomExecutionParameters& ExecutionParams, FGameplayEffectCustomExecutionOutput& OutExecutionOutput) const override;
 };

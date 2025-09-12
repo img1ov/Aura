@@ -10,17 +10,6 @@
 #include "GameplayTags/AuraGameplayTags.h"
 #include "Interaction/CombatInterface.h"
 
-UExecutionCalculation_Damage::UExecutionCalculation_Damage()
-{
-	// Register RelevantAttributesToCapture
-	RelevantAttributesToCapture.Add(GetDamageCaptureStatics().ArmorDef);
-	RelevantAttributesToCapture.Add(GetDamageCaptureStatics().ArmorPenetrationDef);
-	RelevantAttributesToCapture.Add(GetDamageCaptureStatics().BlockChanceDef);
-	RelevantAttributesToCapture.Add(GetDamageCaptureStatics().CriticalChanceDef);
-	RelevantAttributesToCapture.Add(GetDamageCaptureStatics().CriticalHitDamageDef);
-	RelevantAttributesToCapture.Add(GetDamageCaptureStatics().CriticalHitResistanceDef);
-}
-
 void UExecutionCalculation_Damage::Execute_Implementation(
 	const FGameplayEffectCustomExecutionParameters& ExecutionParams,
 	FGameplayEffectCustomExecutionOutput& OutExecutionOutput) const
@@ -50,7 +39,7 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 
 	// Capture BlockChance on Target, and determine if there was a successful Block
 	float TargetBlockChanceMag = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetDamageCaptureStatics().BlockChanceDef, EvaluateParameters, TargetBlockChanceMag);
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(FAttributeCaptureStatics::Get()->BlockChanceDef, EvaluateParameters, TargetBlockChanceMag);
 	TargetBlockChanceMag = FMath::Max<float>(TargetBlockChanceMag, 0.f);
 
 	// If Block, half the Damage
@@ -60,12 +49,12 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 
 	// Capture Armor on Target
 	float TargetArmorMag = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetDamageCaptureStatics().ArmorDef, EvaluateParameters, TargetArmorMag);
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(FAttributeCaptureStatics::Get()->ArmorDef, EvaluateParameters, TargetArmorMag);
 	TargetArmorMag = FMath::Max<float>(TargetArmorMag, 0.f);
 	
 	// Capture Source ArmorPenetration on Source
 	float SourceArmorPenetrationMag = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetDamageCaptureStatics().ArmorPenetrationDef, EvaluateParameters, SourceArmorPenetrationMag);
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(FAttributeCaptureStatics::Get()->ArmorPenetrationDef, EvaluateParameters, SourceArmorPenetrationMag);
 	SourceArmorPenetrationMag = FMath::Max<float>(SourceArmorPenetrationMag, 0.f);
 
 	// Get DamageCalculationCoefficients
@@ -91,15 +80,15 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 	
 	// Capture Critical Attributes
 	float SourcesCriticalChanceMag = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetDamageCaptureStatics().CriticalChanceDef, EvaluateParameters, SourcesCriticalChanceMag);
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(FAttributeCaptureStatics::Get()->CriticalChanceDef, EvaluateParameters, SourcesCriticalChanceMag);
 	SourcesCriticalChanceMag = FMath::Max<float>(SourcesCriticalChanceMag, 0.f);
 	
 	float SourcesCriticalHitDamageMag = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetDamageCaptureStatics().CriticalHitDamageDef, EvaluateParameters, SourcesCriticalHitDamageMag);
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(FAttributeCaptureStatics::Get()->CriticalHitDamageDef, EvaluateParameters, SourcesCriticalHitDamageMag);
 	SourcesCriticalHitDamageMag = FMath::Max<float>(SourcesCriticalHitDamageMag, 0.f);
 
 	float TargetCriticalHitResistanceMag = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetDamageCaptureStatics().CriticalChanceDef, EvaluateParameters, TargetCriticalHitResistanceMag);
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(FAttributeCaptureStatics::Get()->CriticalChanceDef, EvaluateParameters, TargetCriticalHitResistanceMag);
 	TargetCriticalHitResistanceMag = FMath::Max<float>(TargetCriticalHitResistanceMag, 0.f);
 
 	// CriticalHitResistanceCoefficient from CurveTable
