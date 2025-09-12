@@ -9,14 +9,14 @@
  * 
  */
 
-/** Primary Attribute Tags */
+/** Primary Attributes */
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Primary_Strength)
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Primary_Intelligence)
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Primary_Resilience)
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Primary_Vigor)
 
-/** Secondary Attribute Tags */
+/** Secondary Attributes */
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Secondary_Armor)
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Secondary_ArmorPenetration)
@@ -29,6 +29,12 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Secondary_ManaRegeneration)
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Secondary_MaxHealth)
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Secondary_MaxMana)
 
+/** Resistance Attributes */
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Resistance_Physical)
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Resistance_Arcane)
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Resistance_Fire)
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attributes_Resistance_Lightning)
 
 /** Damage */
 
