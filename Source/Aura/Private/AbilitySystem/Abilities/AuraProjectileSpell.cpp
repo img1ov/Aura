@@ -7,7 +7,6 @@
 #include "AbilitySystemComponent.h"
 #include "Actor/AuraProjectile.h"
 #include "Interaction/CombatInterface.h"
-#include "GameplayTags/AuraGameplayTags.h"
 
 void UAuraProjectileSpell::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
                                            const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
@@ -20,6 +19,7 @@ void UAuraProjectileSpell::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 
 AAuraProjectile* UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocation)
 {
+	// Only spawn on server
 	if (GetAvatarActorFromActorInfo()->HasAuthority())
 	{
 		check(ProjectileClass)
@@ -46,9 +46,12 @@ AAuraProjectile* UAuraProjectileSpell::SpawnProjectile(const FVector& Projectile
 				
 				FGameplayEffectContextHandle EffectContextHandle = SourceASC->MakeEffectContext();
 				EffectContextHandle.AddSourceObject(Projectile);
+				EffectContextHandle.SetAbility(this);
+				
 				EffectContextHandle.AddInstigator(GetOwningActorFromActorInfo(), GetAvatarActorFromActorInfo());
 				FGameplayEffectSpecHandle EffectSpecHandle = SourceASC->MakeOutgoingSpec(DamageEffectClass, GetAbilityLevel(), EffectContextHandle);
-				UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(EffectSpecHandle, Effects_Damage, Damage.GetValueAtLevel(GetAbilityLevel()));
+				UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(
+					EffectSpecHandle, Damage.DamageType, Damage.DamageScalableFloat.GetValueAtLevel(GetAbilityLevel()));
 				
 				Projectile->DamageEffectSpecHandle = EffectSpecHandle;
 			}

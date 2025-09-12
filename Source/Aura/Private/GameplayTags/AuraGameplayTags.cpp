@@ -33,7 +33,15 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(Attributes_Resistance_Lightning, "Attributes.Resi
 /** Damage */
 
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Effects_Damage, "Effects.Damage", "Damage")
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Effects_Damage_Physical, "Effects.Damage.Physical", "Physical Damage")
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Effects_Damage_Arcane, "Effects.Damage.Arcane", "Arcane Damage")
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Effects_Damage_Fire, "Effects.Damage.Fire", "Fire Damage")
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Effects_Damage_Lightning, "Effects.Damage.Lightning", "Lightning Damage")
 
+uint8 bPhysicalToResistanceRegistered = FAuraGameplayTagStatics::Get()->RegisterDamageTypeToResistance(Effects_Damage_Physical, Attributes_Resistance_Physical);
+uint8 bArcaneToResistanceRegistered = FAuraGameplayTagStatics::Get()->RegisterDamageTypeToResistance(Effects_Damage_Arcane, Attributes_Resistance_Arcane);
+uint8 bFireToResistanceRegistered = FAuraGameplayTagStatics::Get()->RegisterDamageTypeToResistance(Effects_Damage_Fire, Attributes_Resistance_Fire);
+uint8 bLightningToResistanceRegistered = FAuraGameplayTagStatics::Get()->RegisterDamageTypeToResistance(Effects_Damage_Lightning, Attributes_Resistance_Lightning);
 
 /** Hit React */
 

@@ -6,6 +6,7 @@
 #include "AbilitySystemComponent.h"
 #include "AbilitySystem/AuraAbilitySystemBPLibrary.h"
 #include "AbilitySystem/AuraAbilityTypes.h"
+#include "AbilitySystem/Abilities/AuraDamageGameplayAbility.h"
 #include "AbilitySystem/Data/CharacterClassInfo.h"
 #include "GameplayTags/AuraGameplayTags.h"
 #include "Interaction/CombatInterface.h"
@@ -34,8 +35,10 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 
 	/** Calculation Space */
 	
-	// Get Damage Set by Caller Magnitude <EffectSpec::SetSetByCaller...>
-	float IncomingDamageMag = EffectSpec.GetSetByCallerMagnitude(Effects_Damage);
+	// Get DamageSetByCallerMagnitude <EffectSpec::SetSetByCaller...>
+	const UAuraDamageGameplayAbility* AuraDamageAbility = Cast<UAuraDamageGameplayAbility>(EffectSpec.GetContext().GetAbility());
+	check(AuraDamageAbility)
+	float IncomingDamageMag = EffectSpec.GetSetByCallerMagnitude(AuraDamageAbility->Damage.DamageType);
 
 	// Capture BlockChance on Target, and determine if there was a successful Block
 	float TargetBlockChanceMag = 0.f;
@@ -103,10 +106,26 @@ void UExecutionCalculation_Damage::Execute_Implementation(
 
 	// Double damage plus a bonus if critical hit
 	IncomingDamageMag = bCriticalHit ? 2.f * IncomingDamageMag + SourcesCriticalHitDamageMag : IncomingDamageMag;
+
+	// Get DamageResistanceType
+	FGameplayTag ResistanceType = FAuraGameplayTagStatics::Get()->GetResistanceTypeWithDamageType(AuraDamageAbility->Damage.DamageType);
+	check(ResistanceType.IsValid())
+
+	// Get ResistanceCaptureDef
+	FGameplayEffectAttributeCaptureDefinition ResistanceCaptureDef = FAttributeCaptureStatics::Get()->TagToCaptureDefMap[ResistanceType];
+
+	// Capture ResistanceMagnitude on target
+	float TargetResistanceMag = 0.f;
+	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(ResistanceCaptureDef, EvaluateParameters, TargetResistanceMag);
+	TargetResistanceMag = FMath::Clamp(TargetResistanceMag, 0.f, 100.f);
+	
+	// Apply TargetResistanceMag to IncomingDamage
+	IncomingDamageMag *= (100.f - TargetResistanceMag) / 100.f;
 	
 	/** End Calculation Space */
-
-	// Apply IncomingDamage
+	
+	// Create and add DamageModifier on server
 	const FGameplayModifierEvaluatedData EvaluatedData(UAuraAttributeSet::GetIncomingDamageAttribute(), EGameplayModOp::Additive, IncomingDamageMag);
 	OutExecutionOutput.AddOutputModifier(EvaluatedData);
+	// Then Execute DamageModifier->Trigger AuraAttributeSet->PostAttributeChanged->Apply IncomingDamage on server
 }
