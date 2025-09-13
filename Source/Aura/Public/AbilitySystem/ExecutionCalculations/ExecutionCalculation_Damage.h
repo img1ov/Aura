@@ -77,8 +77,6 @@ class AURA_API UExecutionCalculation_Damage : public UGameplayEffectExecutionCal
 	GENERATED_BODY()
 
 public:
-	
-	
 	UExecutionCalculation_Damage()
 	{
 		RelevantAttributesToCapture.Add(FAttributeCaptureStatics::Get()->ArmorDef);

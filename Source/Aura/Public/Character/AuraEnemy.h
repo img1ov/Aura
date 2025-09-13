@@ -12,6 +12,8 @@
 
 
 class UWidgetComponent;
+class UBehaviorTree;
+class AAuraAIController;
 
 /**
  * 
@@ -21,25 +23,7 @@ class AURA_API AAuraEnemy : public AAuraCharacterBase, public IEnemyInterface
 {
 	GENERATED_BODY()
 
-protected:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="CharacterClassDefault")
-	int32 ActorLevel = 1;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="CharacterClassDefault")
-	ECharacterClass CharacterClass = ECharacterClass::Warrior;
-	
 public:
-	AAuraEnemy();
-
-	/** Enemy Interface */
-	virtual void HighLightActor() override;
-	virtual void UnHighlightActor() override;
-	/** End Enemy Interface */
-
-	/** Combat Interface */
-	virtual int32 GetActorLevel() const override;
-	/** End Combat Interface*/
-
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnHealthChanged;
 
@@ -56,10 +40,35 @@ public:
 	float LifeSpan = 5.f;
 
 protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="CharacterClassDefault")
+	int32 ActorLevel = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="CharacterClassDefault")
+	ECharacterClass CharacterClass = ECharacterClass::Warrior;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UWidgetComponent> HealthBar;
 
+	UPROPERTY(EditAnywhere, Category="AI")
+	TObjectPtr<UBehaviorTree> BehaviorTree;
+
+	UPROPERTY()
+	TObjectPtr<AAuraAIController> AuraAIController;
+
 public:
+	AAuraEnemy();
+
+	virtual void PossessedBy(AController* NewController) override;
+
+	/** Enemy Interface */
+	virtual void HighLightActor() override;
+	virtual void UnHighlightActor() override;
+	/** End Enemy Interface */
+
+	/** Combat Interface */
+	virtual int32 GetActorLevel() const override;
+	/** End Combat Interface*/
+	
 	void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	
 protected:
