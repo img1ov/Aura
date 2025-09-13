@@ -12,14 +12,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f0a9726-f8a8-4386-8601-5d3bf2c3adbd" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Aura/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Aura/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Aura.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Aura.uproject" afterDir="false" />
+    <list default="true" id="7f0a9726-f8a8-4386-8601-5d3bf2c3adbd" name="更改" comment="AuraAIController">
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AI/BB_EnemyBlackboardData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AI/BB_EnemyBlackboardData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/AI/BT_EnemyBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/AI/BT_EnemyBehaviorTree.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/Aura/BP_AuraCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/Aura/BP_AuraCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/Enemies/BP_AuraEnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/Enemies/BP_AuraEnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Aura.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Aura.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/Character/AuraEnemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/Character/AuraEnemy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/AbilitySystem/ExecutionCalculations/ExecutionCalculation_Damage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/Character/AuraEnemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/Character/AuraEnemy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Private/AI/BTService_FindNearestPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Private/AI/BTService_FindNearestPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Aura/Public/AI/BTService_FindNearestPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Aura/Public/AI/BTService_FindNearestPlayer.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,16 +47,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Workspace/Unreal/Projects/Aura/Source/Aura/Aura.Build.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/Player/AuraPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Public/Player/AuraPlayerController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_5.6/Engine/Source/Programs/Shared/EpicGames.Build/UEBuildPlatformSDK.cs" root0="FORCE_HIGHLIGHTING" />
@@ -280,7 +270,7 @@
       <workItem from="1757679156892" duration="2388000" />
       <workItem from="1757722775457" duration="1046000" />
       <workItem from="1757723884141" duration="10724000" />
-      <workItem from="1757768635275" duration="1077000" />
+      <workItem from="1757768635275" duration="7182000" />
     </task>
     <task id="LOCAL-00001" summary="AbilityInputTag &amp; ClickToMove">
       <option name="closed" value="true" />
@@ -338,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757670734081</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="AuraAIController">
+      <option name="closed" value="true" />
+      <created>1757770138612</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1757770138612</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +364,8 @@
     <MESSAGE value="AttributeCaptureStatics" />
     <MESSAGE value="Define Resistance Attributes" />
     <MESSAGE value="Damage Resistance Calculation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Damage Resistance Calculation" />
+    <MESSAGE value="AuraAIController" />
+    <option name="LAST_COMMIT_MESSAGE" value="AuraAIController" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
